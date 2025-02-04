@@ -24,4 +24,4 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init
-        working-directory: /home/runner/work/Project2-Implementation-2-Tier-Architecture-in-AWS-using-Terraform/terraform init
+        working-directory: /home/runner/work/Project2-Implementation-2-Tier-Architecture-in-AWS-using-Terraform/terraform
