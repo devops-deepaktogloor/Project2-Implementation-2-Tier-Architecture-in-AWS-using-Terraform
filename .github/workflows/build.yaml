@@ -1,10 +1,9 @@
-name : 2 tire application deploy
-run-name : ${{ github.actor }} this will create new build
+name: 2-tier-application-deploy
 
 on:
-    push:
-        branches:
-            - 'main'
+  push:
+    branches:
+      - 'main'
 
 env:
   AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
@@ -21,10 +20,20 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
 
-      - name: Debug - List files
-        run: ls -la
-        working-directory: ./
-      
       - name: Initialize Terraform
         run: terraform init
-        working-directory: ./terraform
+        working_directory: ./terraform 
+
+      - name: Plan Infrastructure
+        run: terraform plan -out=plan.out
+        working_directory: ./terraform
+
+      - name: Apply Infrastructure Changes
+        run: terraform apply -auto-approve
+        working_directory: ./terraform
+        needs: Plan Infrastructure 
+
+      - name: Destroy Infrastructure (Optional)
+        run: terraform destroy -auto-approve
+        needs: Apply Infrastructure Changes 
+        if: always() # Always run the destroy step (uncomment if needed)
