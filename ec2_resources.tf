@@ -1,8 +1,8 @@
 # Create ec2 instances
-resource "aws_instance" "web1" {
+resource "aws_instance" "my-web1" {
   ami           = "ami-0287a05f0ef0e9d9a"
   instance_type = "t2.micro"
-  key_name        = "twotier-key-pair"
+  key_name        = "nginix-root"
   availability_zone = "ap-south-1a"
   vpc_security_group_ids      = [aws_security_group.public_sg.id]
   subnet_id                   = aws_subnet.public_1.id
@@ -12,10 +12,10 @@ resource "aws_instance" "web1" {
   }
 }
 
-resource "aws_instance" "web2" {
+resource "aws_instance" "my-web2" {
   ami           = "ami-0287a05f0ef0e9d9a"
   instance_type = "t2.micro"
-  key_name        = "twotier-key-pair"
+  key_name        = "nginix-root"
   availability_zone = "ap-south-1b"
   vpc_security_group_ids      = [aws_security_group.public_sg.id]
   subnet_id                   = aws_subnet.public_2.id

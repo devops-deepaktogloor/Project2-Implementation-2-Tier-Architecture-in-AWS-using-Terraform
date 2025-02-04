@@ -40,18 +40,18 @@ resource "aws_lb_target_group" "project_tg" {
 # Create target attachments
 resource "aws_lb_target_group_attachment" "tg_attach1" {
   target_group_arn = aws_lb_target_group.project_tg.arn
-  target_id        = aws_instance.web1.id
+  target_id        = aws_instance.my-web1.id
   port             = 80
 
-  depends_on = [aws_instance.web1]
+  depends_on = [aws_instance.my-web1]
 }
 
 resource "aws_lb_target_group_attachment" "tg_attach2" {
   target_group_arn = aws_lb_target_group.project_tg.arn
-  target_id        = aws_instance.web2.id
+  target_id        = aws_instance.my-web2.id
   port             = 80
 
-  depends_on = [aws_instance.web2]
+  depends_on = [aws_instance.my-web2]
 }
 
 # Create listener
