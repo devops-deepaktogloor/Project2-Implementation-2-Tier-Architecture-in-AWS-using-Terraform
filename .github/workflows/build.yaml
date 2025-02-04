@@ -30,6 +30,7 @@ jobs:
       
       - name: Plan Terraform
         run: terraform plan
+        needs: Apply Infrastructure Changes
         working-directory: ./terraform
 
       - name: Apply Terraform
