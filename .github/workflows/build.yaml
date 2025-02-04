@@ -1,10 +1,9 @@
-name : 2 tire application deploy
-run-name : ${{ github.actor }} this will create new build
+name: 2-tier-application-deploy
 
 on:
-    push:
-        branches:
-            - 'main'
+  push:
+    branches:
+      - 'main'
 
 env:
   AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
@@ -23,4 +22,3 @@ jobs:
 
       - name: Initialize Terraform
         run: terraform init
-        working-directory: ./terraform
