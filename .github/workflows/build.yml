@@ -1,5 +1,5 @@
 name: Terraform 2 tire project deployment
-run : ${{ github.actor }} is creating a new deployment
+run-name : ${{ github.actor }} is creating a new deployment
 
 on:
   push: 
