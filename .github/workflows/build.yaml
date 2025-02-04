@@ -1,10 +1,9 @@
-name : 2 tire application deploy
-run-name : ${{ github.actor }} this will create new build
+name: 2-tier-application-deploy
 
 on:
-    push:
-        branches:
-            - 'main'
+  push:
+    branches:
+      - 'main'
 
 env:
   AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
@@ -32,12 +31,16 @@ jobs:
       - name: Plan Terraform
         run: terraform plan
         working-directory: ./terraform
-    
+
       - name: Apply Terraform
         run: terraform apply --auto-approve
         working-directory: ./terraform
-
-      - name: Destroy Infrastructure (Optional)
-        run: terraform destroy -auto-approve
-        needs: Apply Infrastructure Changes 
+      
+      - name: Destroy Terraform (Optional)
+        run: terraform apply --auto-approve
+        needs: Apply Infrastructure Changes
         if: always()
+        working-directory: ./terraform
+
+
+
