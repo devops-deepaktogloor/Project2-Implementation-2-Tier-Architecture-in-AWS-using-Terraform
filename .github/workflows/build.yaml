@@ -21,10 +21,6 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
 
-      - name: Debug - List files
-        run: ls -la
-        working-directory: ./home/runner/work/Project2-Implementation-2-Tier-Architecture-in-AWS-using-Terraform
-      
       - name: Initialize Terraform
         run: terraform init
         working-directory: ./terraform
