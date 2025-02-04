@@ -23,7 +23,7 @@ jobs:
 
       - name: Debug - List files
         run: ls -la
-        working-directory: ./home/runner/work/Project2-Implementation-2-Tier-Architecture-in-AWS-using-Terraform
+        working-directory: ./
       
       - name: Initialize Terraform
         run: terraform init
