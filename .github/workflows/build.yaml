@@ -22,18 +22,3 @@ jobs:
 
       - name: Initialize Terraform
         run: terraform init
-        working_directory: ./terraform 
-
-      - name: Plan Infrastructure
-        run: terraform plan -out=plan.out
-        working_directory: ./terraform
-
-      - name: Apply Infrastructure Changes
-        run: terraform apply -auto-approve
-        working_directory: ./terraform
-        needs: Plan Infrastructure 
-
-      - name: Destroy Infrastructure (Optional)
-        run: terraform destroy -auto-approve
-        needs: Apply Infrastructure Changes 
-        if: always() # Always run the destroy step (uncomment if needed)
