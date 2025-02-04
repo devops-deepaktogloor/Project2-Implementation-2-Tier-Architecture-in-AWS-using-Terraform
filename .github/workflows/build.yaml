@@ -30,7 +30,6 @@ jobs:
       
       - name: Plan Terraform
         run: terraform plan
-        needs: Apply Infrastructure Changes
         working-directory: ./terraform
 
       - name: Apply Terraform
@@ -39,7 +38,6 @@ jobs:
       
       - name: Destroy Terraform (Optional)
         run: terraform apply --auto-approve
-        needs: Apply Infrastructure Changes
         if: always()
         working-directory: ./terraform
 
