@@ -22,10 +22,10 @@ jobs:
         aws-region: ap-south-1
     - name: Terraform Init
       run: terraform init
-      working-directory: ./Project2-Implementation-2-Tier-Architecture-in-AWS-using-Terraform
+      working-directory: ./module
     - name: Terraform Plan
       run: terraform plan
-      working-directory: ./Project2-Implementation-2-Tier-Architecture-in-AWS-using-Terraform
+      working-directory: ./module
     - name: Terraform Apply
       run: terraform apply -auto-approve
-      working-directory: ./Project2-Implementation-2-Tier-Architecture-in-AWS-using-Terraform
+      working-directory: ./module
