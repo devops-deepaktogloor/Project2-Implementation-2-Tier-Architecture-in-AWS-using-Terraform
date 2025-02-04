@@ -9,7 +9,7 @@ resource "aws_db_instance" "project_db" {
   allocated_storage    = 5
   engine               = "mysql"
   engine_version       = "5.7"
-  instance_class       = "db.t2.micro"
+  instance_class       = "db.t3.micro"
   identifier           = "db-instance"
   db_name              = "project_db"
   username             = "admin"
